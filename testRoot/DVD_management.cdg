@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="test">
+  <ClassDiagramComponents>
+    <Class name="Users" package="" visibility="public" xPosition="387.0" yPosition="39.0">
+      <Fields>
+        <Field name="UserID" type="String" visibility="private"/>
+        <Field name="UserName" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="GetID" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Admin" package="" visibility="public" xPosition="58.0" yPosition="213.0">
+      <Fields>
+        <Field name="UserID" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="viewUsers" returnType="void" visibility="public"/>
+        <Method name="addUsers" returnType="void" visibility="public"/>
+        <Method name="deleteUsers" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Customer" package="" visibility="public" xPosition="746.0" yPosition="221.0">
+      <Fields>
+        <Field name="UserID" type="String" visibility="private"/>
+        <Field name="EmployeeID" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="rent_DVD" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Employee" package="" visibility="public" xPosition="387.0" yPosition="213.0">
+      <Fields>
+        <Field name="UserID" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="viewStock" returnType="void" visibility="public"/>
+        <Method name="AssistCustomer" returnType="void" visibility="public"/>
+        <Method name="addCustomer" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Transaction" package="" visibility="public" xPosition="343.0" yPosition="481.0">
+      <Fields>
+        <Field name="TransactionNumber" type="String" visibility="private"/>
+        <Field name="UserID" type="String" visibility="private"/>
+        <Field name="TransactionDiscription" type="String" visibility="private"/>
+        <Field name="TransactionDate" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="recordTransaction" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="DVD" package="" visibility="public" xPosition="746.0" yPosition="464.0">
+      <Fields>
+        <Field name="DVD_ID" type="String" visibility="private"/>
+        <Field name="DVD_Name" type="String" visibility="private"/>
+        <Field name="InStock" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getInStock" returnType="void" visibility="public"/>
+        <Method name="getDVD_ID" returnType="void" visibility="public"/>
+        <Method name="Search_DVD_Name" returnType="void" visibility="public"/>
+        <Method name="rent_Out" returnType="void" visibility="public"/>
+        <Method name="recieve_back" returnType="void" visibility="public"/>
+        <Method name="add_new" returnType="void" visibility="public"/>
+        <Method name="delete" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="View" source="Employee" target="DVD" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="Validate" source="Employee" target="Transaction" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="Rent" source="Customer" target="DVD" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <IsRelation name="is" source="Customer" target="Users"/>
+    <IsRelation name="is" source="Admin" target="Users"/>
+    <IsRelation name="is" source="Employee" target="Users"/>
+    <HasRelation name="Has" source="Employee" target="Customer" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="Can Manage" source="Admin" target="Users" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="can perform" source="Customer" target="Transaction" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
